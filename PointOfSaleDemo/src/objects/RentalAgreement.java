@@ -2,6 +2,7 @@ package objects;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class RentalAgreement {
     private String toolCode;
@@ -144,13 +145,15 @@ public class RentalAgreement {
     }
 
     public void printRentalAgreement() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yy");
+
         System.out.println("HERE IS YOUR RENTAL AGREEMENT");
         System.out.println("Tool Code: " + toolCode);
         System.out.println("Tool Type: " + toolType);
         System.out.println("Tool Brand: " + toolBrand);
         System.out.println("Number of Rental Days: " + numRentalDays);
-        System.out.println("Checkout Date: " + checkoutDate);
-        System.out.println("Due Date: " + dueDate);
+        System.out.println("Checkout Date: " + checkoutDate.format(formatter));
+        System.out.println("Due Date: " + dueDate.format(formatter));
         System.out.println("Daily Rental Charge: $" + dailyRentalCharge);
         System.out.println("Charge Days: " + chargeDays);
         System.out.println("Pre-Discount Total: $" + preDiscountTotal);
